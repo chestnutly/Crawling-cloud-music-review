@@ -15,11 +15,12 @@ import time
 import sys
 import importlib
 
-importlib.reload(sys)
+reload(sys)
+sys.setdefaultencoding('utf8')
 id_list = []
 content = {}
 x = 0
-path = r'/home/leo/Desktop/cloudMusicSpider/获取网易云全部热评/html文件'
+path = r'/home/leo/Desktop/paqu'
 filename = r'wangyiyunhot.txt'
 songname_filename = r'songname.txt'
 with open('songid.txt', 'r') as f:
@@ -46,12 +47,12 @@ class hotComments:
                 with io.open(filename, 'a', encoding='utf-8') as f:
                     f.write(content['content'] + "\r\n")
                     os.chdir(path)
-                    filename2 = str(x) + '.html'
-                with open(filename2, 'a') as f:
-                    f.write("<div  class='title'> " + str(name_list[i]).replace("\n", " ") + "</div>" + "\r\n")
-                    f.write("<div  class='context'> " + str(content['content']) + "</div>" + "\r\n")
-                    x = x + 1
-                    f.close()
+                    #filename2 = str(x) + '.html'
+                #with open(filename2, 'a') as f:
+                   # f.write("<div  class='title'> " + str(name_list[i]).replace("\n", " ") + "</div>" + "\r\n")
+                    #f.write("<div  class='context'> " + str(content['content']) + "</div>" + "\r\n")
+                    #x = x + 1
+                    #f.close()
             print("已经爬取到歌曲： id" + str(id))
         except Exception as msg:
             print(msg)
